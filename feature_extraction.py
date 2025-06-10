@@ -75,8 +75,8 @@ def extract_laws(gray):
     return TEM
 
 def save_features(method, features, labels):
-    os.makedirs("C:/Users/user/Desktop/2025 컴퓨터비전/Challange1/saved_features", exist_ok=True)
-    save_path = f"C:/Users/user/Desktop/2025 컴퓨터비전/Challange1/saved_features/{method}_features.npz"
+    os.makedirs("./saved_features", exist_ok=True)
+    save_path = f"./saved_features/{method}_features.npz"
     np.savez_compressed(save_path, features=features, labels=labels)
     print(f"Saved {method} features to {save_path}")
 
@@ -108,7 +108,7 @@ def process_dataset(dataset_path, method):
     save_features(method, np.array(features), np.array(labels))
 
 if __name__ == "__main__":
-    dataset_path = "C:/Users/user/Desktop/2025 컴퓨터비전/Challange1/recaptcha-dataset/Large"
+    dataset_path = "./recaptcha-dataset/Large"
     methods = ["lbp", "glcm", "hog", "laws"]
     for method in methods:
         process_dataset(dataset_path, method)
